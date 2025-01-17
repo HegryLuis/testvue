@@ -1,5 +1,5 @@
 <template>
-  <div class="test-page">
+  <div class="test-page" data-barba="container" data-barba-namespace="second">
     <h1>Welcome to the Test Page!</h1>
     <router-link to="/">Back to Main Page</router-link>
   </div>

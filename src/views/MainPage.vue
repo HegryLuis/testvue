@@ -1,7 +1,15 @@
 <template>
-  <div class="container">
+  <div class="container" data-barba="container" data-barba-namespace="home">
     <AppHeader />
     <MainText />
+    <div class="background-text">
+      <h1 class="bg-text bg-text-left">
+        FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT AGENCY
+      </h1>
+      <h1 class="bg-text bg-text-right">
+        FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT AGENCY
+      </h1>
+    </div>
     <EventWheel />
     <WrapperText text="What?" textClass="what" @click="navigateTo('/second')" />
     <WrapperText

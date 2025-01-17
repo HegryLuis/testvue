@@ -16,6 +16,24 @@
   }
 }
 
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(80%) scaleX(-1) scaleY(-1);
+  }
+  100% {
+    transform: translateX(-80%) scaleX(-1) scaleY(-1);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-80%);
+  }
+  100% {
+    transform: translateX(80%);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +48,43 @@
   width: 100%;
   height: 100vh;
   background: #bebebe;
+  position: relative;
+}
+
+.background-text {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bg-text {
+  rotate: -25deg;
+  font-family: "Grtsk Giga", sans-serif;
+  font-style: italic;
+  line-height: 1.5;
+  font-size: 5vw;
+  color: transparent;
+  -webkit-text-stroke: 0.2px #373737;
+  letter-spacing: 10px;
+  white-space: nowrap;
+}
+
+.bg-text-left {
+  /* transform: scaleX(-1) scaleY(-1); */
+  animation: scrollLeft 30s linear infinite;
+}
+
+.bg-text-right {
+  animation: scrollRight 30s linear infinite;
 }
 
 .header {
@@ -38,11 +93,12 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 10px;
 }
 
 .sticker {
   position: absolute;
-  left: 0;
+  left: 2.5%;
   cursor: pointer;
 }
 
@@ -99,27 +155,9 @@
   padding: 20px;
 }
 
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  background-color: black;
-  transform: scaleY(1);
-  transform-origin: bottom;
-  transition: transform 2s ease, opacity 1s ease;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 1;
-}
-
-.filled .overlay {
-  transform: scaleY(0);
-  opacity: 0;
-}
-
 .main {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,7 +167,6 @@
   width: 80%;
   height: 80vh;
   background: radial-gradient(circle at center, #ffcb46 20%, transparent 45%);
-  backdrop-filter: blur(10px);
 }
 
 .main-text {
@@ -199,6 +236,7 @@
   border-radius: 50%;
   transform: translateY(-50%);
   cursor: default;
+  z-index: 3;
 }
 
 .wheel__center {
